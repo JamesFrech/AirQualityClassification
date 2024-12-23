@@ -1,6 +1,6 @@
 # Classification
 
-This directory considers many machine learning models
+This directory considers many machine learning models for air quality classification. Logistic regression performs rather well, but struggles with poor and hazardous categories. SVM performs better, however, random forest and XGBoost both perform very well (and almost exactly the same).
 
 ---
 
