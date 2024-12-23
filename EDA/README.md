@@ -23,5 +23,5 @@ Creates plots of histograms for each input variable, all split into 4 distributi
 Performs a PCA decomposition on the input data and plots a scree plot, PC1 vs PC2 scatter, and histograms for the PCs. PC1 and PC2 similarly show different normal distributions for each air quality category and in addition show rather good separability between classes. The first two PCs account for 56% and 14.8% of the variability in the data (~70% combined).
 
 ![alt text](images/scree_plot.png "Scree Plot")
-![alt text](images/PC1_PC2_scatter.png "PC1 vs PC2)
+![alt text](images/PC1_PC2_scatter.png "PC1 vs PC2")
 ![alt text](images/PCA_histograms.png "Histograms of PCs")
