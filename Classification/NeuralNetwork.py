@@ -6,7 +6,7 @@ import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR
 import torch.nn as nn
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import f1_score, precision_score, recall_score, confusion_matrix, ConfusionMatrixDisplay
 from NeuralNetworkModel import TorchDataset, NeuralNetwork
 import matplotlib.pyplot as plt
@@ -30,11 +30,23 @@ data['Air Quality'] = data['Air Quality'].replace(AQ_dict)
 X_train, X_test, y_train, y_test = train_test_split(
     data[inputs], data[target], test_size=0.2, random_state=42)
 
-# convert pandas DataFrame (X) and numpy array (y) into PyTorch tensors
-X_train = torch.tensor(X_train.values, dtype=torch.float32)
+# Scale the data for faster convergence
+scaler = MinMaxScaler()
+scaler.fit(X_train)
+X_train=scaler.transform(X_train)
+X_test=scaler.transform(X_test)
+
+# convert pandas dataframes and numpy arrays into PyTorch tensors
+X_train = torch.tensor(X_train, dtype=torch.float32)
 y_train = torch.tensor(y_train.values.squeeze(), dtype=torch.float32).type(torch.LongTensor)
-X_test = torch.tensor(X_test.values, dtype=torch.float32)
+X_test = torch.tensor(X_test, dtype=torch.float32)
 y_test = torch.tensor(y_test.values.squeeze(), dtype=torch.float32).type(torch.LongTensor)
+
+# convert pandas DataFrame (X) and numpy array (y) into PyTorch tensors
+#X_train = torch.tensor(X_train.values, dtype=torch.float32)
+#y_train = torch.tensor(y_train.values.squeeze(), dtype=torch.float32).type(torch.LongTensor)
+#X_test = torch.tensor(X_test.values, dtype=torch.float32)
+#y_test = torch.tensor(y_test.values.squeeze(), dtype=torch.float32).type(torch.LongTensor)
 
 model = NeuralNetwork(n_inputs=len(inputs),n_outputs=len(classes))
 

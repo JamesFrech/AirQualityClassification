@@ -26,7 +26,8 @@ Fits an XGBoost classifier to the air quality data with 5 fold cross validation 
 Contains classes for a pytorch dataset and a class for the basic neural network used for classification in NeuralNetwork.py
 
 ### NeuralNetwork.py
-Trains a neural network for multi-class classification of air quality data using pytorch. The model contains one hidden layer with 5 nodes and shows comparable performance to the other models achieving a 95% test accuracy in 300 epochs. A learning rate decay is applied at 200 epochs to prevent high variablity in test accuracy and to fine tune parameters.
+Trains a neural network for multi-class classification of air quality data using pytorch. The model contains one hidden layer with 5 nodes and shows comparable performance to the other models achieving a 95% test accuracy in 300 epochs. 94% accuracy was first hit at 14 epochs, however many more were needed to maximize the model's ability at 95% (not necessarily needed).
+
 ![alt text](images/NN_Confusion_Matrix_test.png "Neural Network Confusion Matrix")
 ![alt text](images/NN_accuracy.png "Neural Network Accuracy")
 ![alt text](images/NN_loss.png "Neural Network Loss")
