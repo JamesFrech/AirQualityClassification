@@ -40,15 +40,14 @@ kfold = KFold(5,
 
 # Get the grid of hyperparameters for the model
 # Need to specify scoring for f1 with multiclass
-#scoring = {'f1_score' : make_scorer(f1_score, average='weighted')}
 scoring = make_scorer(f1_score, average='weighted')
 grid = RandomizedSearchCV(rf,
-                           param_grid,
-                           refit=True,
-                           cv=kfold,
-                           n_iter = 100,
-                           verbose = 5,
-                           scoring=scoring)
+                          param_grid,
+                          refit=True,
+                          cv=kfold,
+                          n_iter = 100,
+                          verbose = 5,
+                          scoring=scoring)
 
 # Fit the model
 grid.fit(X_train, y_train)
