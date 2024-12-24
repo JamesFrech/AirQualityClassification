@@ -1,6 +1,6 @@
 # Classification
 
-This directory considers many machine learning models for air quality classification. Logistic regression performs rather well, but struggles with poor and hazardous categories. SVM performs better, however, random forest and XGBoost both perform very well (and almost exactly the same).
+This directory considers many machine learning models for air quality classification. Logistic regression performs rather well, but struggles with poor and hazardous categories. Linear SVM, random forest, XGBoost, and the neural network all perform very well (and almost exactly the same).
 
 ---
 
@@ -28,7 +28,5 @@ Contains classes for a pytorch dataset and a class for the basic neural network 
 ### NeuralNetwork.py
 Trains a neural network for multi-class classification of air quality data using pytorch. The model contains one hidden layer with 5 nodes and shows comparable performance to the other models achieving a 95% test accuracy in 300 epochs. A learning rate decay is applied at 200 epochs to prevent high variablity in test accuracy and to fine tune parameters.
 ![alt text](images/NN_Confusion_Matrix_test.png "Neural Network Confusion Matrix")
-
-Loss and Accuracy by epoch
 ![alt text](images/NN_accuracy.png "Neural Network Accuracy")
 ![alt text](images/NN_loss.png "Neural Network Loss")

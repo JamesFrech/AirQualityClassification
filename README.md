@@ -1,6 +1,6 @@
 # Air Quality Classification
 
-This project implements many machine learning techniques on the kaggle dataset "Air quality and Pollution Assessment" (https://www.kaggle.com/datasets/mujtabamatin/air-quality-and-pollution-assessment) to classify air pollution as "Good", "Moderate", "Poor", or "Hazardous". Nine provided input features are considered for the models to predict the output "Air Quality". First, an exploratory data analysis was performed to analyze the distributions of input variables and their relationships with the output data. From there, clustering was performed to separate the data into different clusters that could represent the classes. After, the many models including logistic regression, linear SVM, random forest, XGBoost were used to classify the data.
+This project implements many machine learning techniques on the kaggle dataset "Air quality and Pollution Assessment" (https://www.kaggle.com/datasets/mujtabamatin/air-quality-and-pollution-assessment) to classify air pollution as "Good", "Moderate", "Poor", or "Hazardous". Nine provided input features are considered for the models to predict the output "Air Quality". First, an exploratory data analysis was performed to analyze the distributions of input variables and their relationships with the output data. From there, clustering was performed to separate the data into different clusters that could represent the classes. After, the many models including logistic regression, linear SVM, random forest, XGBoost, and a neural network were used to classify the data.
 
 ---
 
@@ -20,9 +20,9 @@ As certain input variables showed clear distinct gaussian distributions for each
 ---
 
 ## Classification
-This subdirectory contains analysis of how different ML models are able to classify the air quality data. Models used include logistic regression, linear SVM (high performance, so other kernels not needed), random forest, XGBoost, and multi layer perceptron.
+This subdirectory contains analysis of how different ML models are able to classify the air quality data. Models used include logistic regression, linear SVM (high performance, so other kernels not needed), random forest, XGBoost, and a neural network.
 
 ---
 
-## XAI
+## XAI (in progress)
 This subdirectory looks into explaining the machine learning techniques and how the inputs to the models affect them. Feature importances from random forest and XGBoost are considered as well as shap values and permutation importance.
