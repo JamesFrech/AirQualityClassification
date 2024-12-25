@@ -15,6 +15,10 @@ class TorchDataset(Dataset):
 
 class NeuralNetwork(nn.Module):
     def __init__(self, n_inputs: int, n_outputs: int):
+        """
+        n_inputs (int): number of input features for the model.
+        n_outputs (int): number of output classes for the model.
+        """
         super(NeuralNetwork, self).__init__()
         self.fc1 = nn.Linear(n_inputs, 5)
         self.fc2 = nn.Linear(5, n_outputs)
