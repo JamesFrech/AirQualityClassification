@@ -152,7 +152,7 @@ plt.xlabel('Epoch')
 plt.savefig('images/NN_accuracy.png')
 plt.close()
 
-# Confusion matrix
+# Final train predictions
 all_labels_train=[]
 train_pred=[]
 with torch.no_grad(): # Don't update weights when testing
@@ -163,7 +163,7 @@ with torch.no_grad(): # Don't update weights when testing
         all_labels_train = all_labels_train + labels.tolist()
         train_pred = train_pred + predicted.tolist()
 
-# Confusion matrix
+# Final test predictions
 all_labels=[]
 pred=[]
 with torch.no_grad(): # Don't update weights when testing
@@ -174,11 +174,13 @@ with torch.no_grad(): # Don't update weights when testing
         all_labels = all_labels + labels.tolist()
         pred = pred + predicted.tolist()
 
+# Confusion matrix for test data
 cm = confusion_matrix(all_labels, pred)
 ConfusionMatrixDisplay(cm).plot()
 plt.savefig('images/NN_Confusion_Matrix_test',bbox_inches='tight')
 plt.close()
 
+# Training metrics
 f1 = f1_score(all_labels_train,train_pred,average=None)
 prec = precision_score(all_labels_train,train_pred,average=None)
 rec = recall_score(all_labels_train,train_pred,average=None)
@@ -186,9 +188,13 @@ rec = recall_score(all_labels_train,train_pred,average=None)
 train_metrics = pd.DataFrame(np.array([f1,prec,rec]).T,index=classes,columns=['F1','Precision','Recall'])
 print(train_metrics)
 
+# Testing metrics
 f1 = f1_score(all_labels,pred,average=None)
 prec = precision_score(all_labels,pred,average=None)
 rec = recall_score(all_labels,pred,average=None)
 
 metrics = pd.DataFrame(np.array([f1,prec,rec]).T,index=classes,columns=['F1','Precision','Recall'])
 print(metrics)
+
+# Save the model weights
+torch.save(model.state_dict(),'NN_weights.pth')
