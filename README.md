@@ -24,5 +24,5 @@ This subdirectory contains analysis of how different ML models are able to class
 
 ---
 
-## XAI (in progress)
-This subdirectory looks into explaining the machine learning techniques and how the inputs to the models affect them. Feature importances from random forest and XGBoost are considered as well as shap values and permutation importance.
+## XAI
+This subdirectory looks into explaining the machine learning techniques and how the inputs to the models affect them. Feature importance from random forest and XGBoost are considered as well as shap values and permutation importance.
